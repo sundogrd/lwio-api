@@ -8,7 +8,7 @@ router
   .get('/public/get', function (ctx, next) {
     ctx.body = '禁止访问！'
   })
-  .get('/api/file/upload', controllers.file.Upload)
+  .post('/api/file/upload', controllers.file.Upload)
   // .all('/upload', controllers.upload.default)
   // .get('/api/:name', controllers.api.Get)
   // .post('/api/:name', controllers.api.Post)
