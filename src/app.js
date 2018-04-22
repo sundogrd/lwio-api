@@ -44,8 +44,6 @@ if (env === 'development') { // logger
   })
 }
 
-console.log(path.resolve(__dirname, '../assets'))
-
 app
   .use((ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
@@ -55,7 +53,7 @@ app
     return next()
   })
   .use(ErrorRoutesCatch())
-  .use(LwStatic('api/assets', path.resolve(__dirname, '../assets')))
+  .use(LwStatic('api/storeroom', path.resolve(__dirname, '../storeroom')))
   .use(routes)
   .use(ErrorRoutes())
 app.listen(SystemConfig.API_server_port)

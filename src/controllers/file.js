@@ -20,7 +20,7 @@ const Upload = async (ctx) => {
   form.keepExtensions = true // 使用文件的原扩展名
   form.encoding = 'utf-8'
 
-  var targetDir = path.join(__dirname, '../../assets/storeroom')
+  var targetDir = path.join(__dirname, '../../storeroom')
 
   // 检查目标目录，不存在则创建
   try {
