@@ -55,7 +55,7 @@ app
     return next()
   })
   .use(ErrorRoutesCatch())
-  .use(LwStatic('assets', path.resolve(__dirname, '../assets')))
+  .use(LwStatic('api/assets', path.resolve(__dirname, '../assets')))
   .use(routes)
   .use(ErrorRoutes())
 app.listen(SystemConfig.API_server_port)
