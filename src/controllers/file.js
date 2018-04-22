@@ -24,7 +24,7 @@ const Upload = async (ctx) => {
 
   // 检查目标目录，不存在则创建
   try {
-    await accessPromise()
+    await accessPromise(targetDir)
   } catch (e) {
     fs.mkdirSync(targetDir)
   }
