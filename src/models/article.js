@@ -1,28 +1,23 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const BufferSchema = new Schema({
-  name: {
-    type: String,
-    unique: true,
-    require: true
-  },
-  duration: {
-    type: Date
-  },
-  type: {
+const ArticleSchema = new Schema({
+  title: {
     type: String,
     require: true
   },
-  des: {
-    type: String
+  content: {
+    type: String,
+    require: true
   },
-  disperseable: {
+  tags: [{
     type: String
-  }
+  }]
+}, {
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 
-BufferSchema.set('toObject', {
+ArticleSchema.set('toObject', {
   transform: function (doc, ret, options) {
     ret.id = ret._id
     delete ret._id
@@ -30,4 +25,4 @@ BufferSchema.set('toObject', {
   }
 })
 
-module.exports = mongoose.model('Buffer', BufferSchema)
+module.exports = mongoose.model('Article', ArticleSchema)

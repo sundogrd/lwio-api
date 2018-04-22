@@ -21,13 +21,13 @@ const mongoose = require('mongoose')
 
 global.logger = customizedLogger
 
-// mongoose.connect(DBConfig.url, {
-//   useMongoClient: true
-// })
-// mongoose.connection.on('connected', () => {
-//   console.log('Mongoose connection open to ' + DBConfig.url)
-// })
-// mongoose.connection.on('error', console.error)
+mongoose.connect(DBConfig.url, {
+  useMongoClient: true
+})
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose connection open to ' + DBConfig.url)
+})
+mongoose.connection.on('error', console.error)
 
 const app = new Koa2()
 const env = process.env.NODE_ENV || 'development' // Current mode
@@ -45,6 +45,7 @@ if (env === 'development') { // logger
 }
 
 app
+  .use(KoaBody())
   .use((ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
     ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Token')
