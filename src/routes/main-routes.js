@@ -2,13 +2,14 @@ const KoaRouter = require('koa-router')
 
 const controllers = require('../controllers/index.js')
 
-const router = new KoaRouter()
+const router = new KoaRouter({ prefix: '/api' })
 
 router
   .get('/public/get', function (ctx, next) {
     ctx.body = '禁止访问！'
   })
-  .post('/api/file/upload', controllers.file.Upload)
+  .get('/file/list', controllers.file.GetList)
+  .post('/file/upload', controllers.file.Upload)
   // .all('/upload', controllers.upload.default)
   // .get('/api/:name', controllers.api.Get)
   // .post('/api/:name', controllers.api.Post)

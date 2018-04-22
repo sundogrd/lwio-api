@@ -1,6 +1,7 @@
 const formidable = require('formidable')
 const path = require('path')
 const fs = require('fs')
+const Walker = require('../tool/walker') // 文件夹漫游者
 
 const accessPromise = async (targetDir) => {
   return new Promise((resolve, reject) => {
@@ -66,10 +67,26 @@ const Upload = async (ctx) => {
 }
 
 const GetList = async (ctx) => {
+  const files = []
+  await new Promise((resolve, reject) => {
+    Walker(path.resolve(__dirname, '../../storeroom'))
+      .on('file', (file, stat) => {
+        files.push({
+          name: file.split('/storeroom/')[1],
+          url: `http://lwio.me/api/storeroom/${file.split('/storeroom/')[1]}`,
+          size: stat.size
+        })
+      })
+      .on('dir', (dir, stat) => {
+      // 递归？
+      })
+      .on('end', () => {
+        resolve()
+      })
+  })
   ctx.body = {
-    result: 'post',
-    name: ctx.params.name,
-    para: ctx.request.body
+    data: files,
+    total: files.length
   }
 }
 
