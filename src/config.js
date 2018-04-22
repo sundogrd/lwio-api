@@ -24,3 +24,8 @@ exports.SendEmail = {
   password: 'password', // 邮箱密码
   sender_address: '"XX平台 👥" <postmaster@abcd.com>'
 }
+
+exports.Storeroom = {
+  tempDir: '/tmp',
+  targetDir: '~/storeroom'
+}
