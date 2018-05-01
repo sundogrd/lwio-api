@@ -10,9 +10,16 @@ const ArticleSchema = new Schema({
     type: String,
     require: true
   },
+  brief: {
+    type: String,
+  },
   tags: [{
     type: String
-  }]
+  }],
+  read_count: {
+    type: Number,
+    default: 0
+  }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })

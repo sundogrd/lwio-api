@@ -1,20 +1,26 @@
 
-const path = require('path')
+// const path = require('path')
 const ArticleModal = require('../models/article')
 const pagination = require('../helpers/page')
 
 // 支持筛选、分页
 const GetArticleList = async (ctx) => {
   const query = ctx.query
-  const list = await ArticleModal.find({
-    $and: [],
-    $or: []
-  }).sort({ updated_at: -1 })
+  const searchQuery = {}
+  if(false) {
+    searchQuery.$and = []
+  }
+  if(false) {
+    searchQuery.$or = []
+  }
+  const list = await ArticleModal
+  .find(searchQuery)
+  .sort({ updated_at: -1 })
 
   const data = pagination.getCurrentPageDataWithPagination(
-    list,
-    query.currentPage,
-    query.pageSize
+    list.map(item => item.toObject()),
+    query.offset + 1,
+    query.limit
   )
   ctx.body = {
     ...data
@@ -22,7 +28,15 @@ const GetArticleList = async (ctx) => {
 }
 
 const GetArticleById = async (ctx) => {
+  const articleId = ctx.params.id
+  console.log(articleId)
 
+  const articleDoc = await ArticleModal
+  .findByIdAndUpdate(articleId, { $inc: { read_count: 1 } })
+
+  ctx.body = {
+    ...articleDoc.toObject()
+  }
 }
 
 const PostArticle = async (ctx) => {

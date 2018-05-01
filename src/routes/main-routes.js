@@ -10,6 +10,8 @@ router
   })
   .get('/file/list', controllers.file.GetList)
   .post('/file/upload', controllers.file.Upload)
+  .get('/articles/:id', controllers.article.GetArticleById)
+  .get('/articles', controllers.article.GetArticleList)
   .post('/articles', controllers.article.PostArticle)
   // .all('/upload', controllers.upload.default)
   // .get('/api/:name', controllers.api.Get)
