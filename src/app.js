@@ -11,6 +11,7 @@ const ErrorRoutes = require('./routes/error-routes')
 const CORS = require('./middleware/CORS')
 const ErrorRoutesCatch = require('./middleware/ErrorRoutesCatch')
 const LwStatic = require('./middleware/lw-static')
+const LwRange = require('./middleware/lw-range')
 
 const customizedLogger = require('./tool/customized-winston-logger')
 
@@ -54,6 +55,7 @@ app
     return next()
   })
   .use(ErrorRoutesCatch())
+  .use(LwRange)
   .use(LwStatic('api/storeroom', path.resolve(__dirname, '../storeroom')))
   .use(routes)
   .use(ErrorRoutes())
