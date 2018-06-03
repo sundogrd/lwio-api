@@ -1,5 +1,5 @@
 {
-  "name": "e-civ-api",
+  "name": "lwio-api",
   "version": "1.0.0",
   "description": "Koa2 RESTful API 服务器的脚手架",
   "author": "lwio <443474713@qq.com>",
