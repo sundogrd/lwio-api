@@ -28,6 +28,7 @@
     "mongoose": "^4.13.1",
     "nodemailer": "^4.3.0",
     "require-directory": "^2.1.1",
+    "stream-slice": "^0.1.2",
     "winston": "^2.4.0"
   },
   "devDependencies": {
