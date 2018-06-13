@@ -2,38 +2,29 @@ const Koa2 = require('koa')
 const KoaBody = require('koa-body')
 
 const SystemConfig = require('./config').System
-const DBConfig = require('./config').DB
 
 const path = require('path')
 const routes = require('./routes/index')
 const ErrorRoutes = require('./routes/error-routes')
 
-const CORS = require('./middleware/CORS')
+// const CORS = require('./middleware/CORS')
 const ErrorRoutesCatch = require('./middleware/ErrorRoutesCatch')
 const LwStatic = require('./middleware/lw-static')
 const LwRange = require('./middleware/lw-range')
 
 const customizedLogger = require('./tool/customized-winston-logger')
+require('./mongodb/db') // 直接连接数据库，不需要使用db
 
-const jwt = require('jsonwebtoken')
-const fs = require('fs')
-const mongoose = require('mongoose')
+// const jwt = require('jsonwebtoken')
+
 // import PluginLoader from './lib/PluginLoader'
 
 global.logger = customizedLogger
 
-mongoose.connect(DBConfig.url, {
-  useMongoClient: true
-})
-mongoose.connection.on('connected', () => {
-  console.log('Mongoose connection open to ' + DBConfig.url)
-})
-mongoose.connection.on('error', console.error)
-
 const app = new Koa2()
 const env = process.env.NODE_ENV || 'development' // Current mode
 
-const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'))
+// const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'))
 
 if (env === 'development') { // logger
   app.use((ctx, next) => {

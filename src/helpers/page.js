@@ -5,6 +5,6 @@ exports.getCurrentPageData = getCurrentPageData
 exports.getCurrentPageDataWithPagination = (list, page, size) => ({
   list: getCurrentPageData(list, page, size),
   total: list.length,
-  current: page,
-  size
+  current: parseInt(page),
+  size: parseInt(size)
 })

@@ -11,7 +11,7 @@ const ArticleSchema = new Schema({
     require: true
   },
   brief: {
-    type: String,
+    type: String
   },
   tags: [{
     type: String
