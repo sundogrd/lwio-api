@@ -1,6 +1,7 @@
 
-export default class BaseController {
+class BaseController {
   // constructor () {
 
   // }
 }
+module.exports = BaseController

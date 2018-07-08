@@ -1,44 +1,44 @@
 
 // const path = require('path')
-const BaseController = require('./prototype/BaseController')
+// const BaseController = require('./prototype/BaseController')
 const ArticleModal = require('../models/article')
 const pagination = require('../helpers/page')
 
-class Article extends BaseController {
-  async GetArticleList (ctx) {
-    const query = ctx.query
-    const searchQuery = {}
-    if (false) {
-      searchQuery.$and = []
-    }
-    if (false) {
-      searchQuery.$or = []
-    }
-    const list = await ArticleModal
-      .find(searchQuery)
-      .sort({ updated_at: -1 })
+// class Article extends BaseController {
+//   async GetArticleList (ctx) {
+//     const query = ctx.query
+//     const searchQuery = {}
+//     if (false) {
+//       searchQuery.$and = []
+//     }
+//     if (false) {
+//       searchQuery.$or = []
+//     }
+//     const list = await ArticleModal
+//       .find(searchQuery)
+//       .sort({ updated_at: -1 })
 
-    const data = pagination.getCurrentPageDataWithPagination(
-      list.map(item => item.toObject()),
-      query.offset + 1,
-      query.limit
-    )
-    ctx.body = {
-      ...data
-    }
-  }
-}
+//     const data = pagination.getCurrentPageDataWithPagination(
+//       list.map(item => item.toObject()),
+//       query.offset + 1,
+//       query.limit
+//     )
+//     ctx.body = {
+//       ...data
+//     }
+//   }
+// }
 
 // 支持筛选、分页
 const GetArticleList = async (ctx) => {
   const query = ctx.query
   const searchQuery = {}
-  if (false) {
-    searchQuery.$and = []
-  }
-  if (false) {
-    searchQuery.$or = []
-  }
+  // if (false) {
+  //   searchQuery.$and = []
+  // }
+  // if (false) {
+  //   searchQuery.$or = []
+  // }
   const list = await ArticleModal
     .find(searchQuery)
     .sort({ updated_at: -1 })
