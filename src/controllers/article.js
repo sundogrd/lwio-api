@@ -68,7 +68,7 @@ const GetArticleById = async (ctx) => {
 const PostArticle = async (ctx) => {
   let data = ctx.request.body
 
-  if (!data.title || !data.content) {
+  if (!data.title || !data.content_md) {
     ctx.body = {
       err: 'require necessary filed'
     }
@@ -77,7 +77,7 @@ const PostArticle = async (ctx) => {
   }
   var articleModal = new ArticleModal({
     title: data.title,
-    content: data.content
+    content_md: data.content_md
   })
   await articleModal.save(function (err, articleDoc) {
     if (err) {
