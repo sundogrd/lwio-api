@@ -6,7 +6,7 @@ const ArticleSchema = new Schema({
     type: String,
     require: true
   },
-  content: {
+  content_md: {
     type: String,
     require: true
   },
@@ -19,6 +19,10 @@ const ArticleSchema = new Schema({
   read_count: {
     type: Number,
     default: 0
+  },
+  author_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
