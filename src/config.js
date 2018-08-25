@@ -15,7 +15,7 @@ exports.System = {
 }
 
 exports.DB = {
-  url: 'mongodb://localhost/lwio'
+  url: 'mongodb://lwio.me/lwio'
 }
 
 exports.SendEmail = {

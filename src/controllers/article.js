@@ -60,6 +60,9 @@ const GetArticleById = async (ctx) => {
   const articleDoc = await ArticleModal
     .findByIdAndUpdate(articleId, { $inc: { read_count: 1 } })
 
+  if (!articleDoc) {
+    throw new Error('article not found')
+  }
   ctx.body = {
     ...articleDoc.toObject()
   }
