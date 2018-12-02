@@ -1,0 +1,84 @@
+Arguments: 
+  /Users/bytedance/.nvm/versions/node/v10.11.0/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/bytedance/.nvm/versions/node/v10.11.0/bin:/Users/bytedance/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/bytedance/bin:/Users/bytedance/go/bin:/Users/bytedance/anaconda3/bin:/Users/bytedance/go/bin:/Users/bytedance/anaconda3/bin:/usr/bin:/usr/sbin:/usr/local/bin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  10.11.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/bytedance/Library/Caches/Yarn/v4/npm-ansi-styles-2.2.1-b432dd3358b634cf75e1e4664368240533c1ddbe/node_modules/ansi-styles/index.js' -> '/Users/bytedance/lwio-api/node_modules/babel-code-frame/node_modules/ansi-styles/index.js'
+
+npm manifest: 
+  {
+    "name": "lwio-api",
+    "version": "1.0.0",
+    "description": "Koa2 RESTful API 服务器的脚手架",
+    "author": "lwio <443474713@qq.com>",
+    "contributors": [
+      "lvfei <1972952841@qq.com>"
+    ],
+    "scripts": {
+      "start": "gulp nodemon",
+      "dev": "gulp",
+      "build": "babel src -d dist",
+      "production": "node dist/app.js"
+    },
+    "dependencies": {
+      "bcrypt": "^3.0.2",
+      "chalk": "^2.3.0",
+      "dateformat": "^3.0.2",
+      "formidable": "^1.2.1",
+      "jsonwebtoken": "^8.1.0",
+      "koa": "^2.3.0",
+      "koa-body": "^2.5.0",
+      "koa-compose": "^4.0.0",
+      "koa-jwt": "^3.2.2",
+      "koa-router": "^7.2.1",
+      "koa-send": "^4.1.3",
+      "koa-static": "^4.0.2",
+      "mongoose": "^4.13.1",
+      "nodemailer": "^4.3.0",
+      "require-directory": "^2.1.1",
+      "stream-slice": "^0.1.2",
+      "winston": "^2.4.0"
+    },
+    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-core": "^6.26.0",
+      "babel-plugin-transform-runtime": "^6.22.0",
+      "babel-preset-env": "^1.6.1",
+      "babel-preset-stage-3": "^6.24.1",
+      "babel-register": "^6.26.0",
+      "babel-watch": "^2.0.7",
+      "eslint": "^4.9.0",
+      "eslint-config-standard": "^10.2.1",
+      "eslint-friendly-formatter": "^3.0.0",
+      "eslint-plugin-html": "^3.2.2",
+      "eslint-plugin-import": "^2.8.0",
+      "eslint-plugin-node": "^5.2.1",
+      "eslint-plugin-promise": "^3.6.0",
+      "eslint-plugin-standard": "^3.0.1",
+      "gulp": "^3.9.1",
+      "gulp-eslint": "^4.0.0",
+      "gulp-nodemon": "^2.2.1",
+      "koa-logger": "^3.1.0"
+    },
+    "engines": {
+      "node": ">= 7.8.0",
+      "npm": ">= 4.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

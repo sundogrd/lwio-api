@@ -31,7 +31,11 @@ const pagination = require('../helpers/page')
 
 // 支持筛选、分页
 const GetArticleList = async (ctx) => {
-  const query = ctx.query
+  const query = {
+    limit: 30,
+    offset: 0,
+    ...ctx.query
+  }
   const searchQuery = {}
   // if (false) {
   //   searchQuery.$and = []
